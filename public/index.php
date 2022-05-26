@@ -5,8 +5,8 @@ use Nyholm\Psr7\Factory\Psr17Factory;
 use Alura\Cursos\Controller\ListarCursos;
 use Alura\Cursos\Controller\Persistencia;
 use Nyholm\Psr7Server\ServerRequestCreator;
+use Psr\Http\Server\RequestHandlerInterface;
 use Alura\Cursos\Controller\FormularioInsercao;
-use Alura\Cursos\Controller\InterfaceControladorRequisicao;
 
 $caminho = $_SERVER['PATH_INFO'];
 $rotas = require __DIR__ . '/../config/routes.php';
@@ -43,11 +43,11 @@ $creator = new ServerRequestCreator(
 $request = $creator->fromGlobals();
 
 $classeControladora = $rotas[$caminho];
-/**@var InterfaceControladorRequisicao $controlador */
+/** @var RequestHandlerInterface $controlador */
 $controlador = new $classeControladora();
-$resposta = $controlador->processaRequisicao($request);
+$resposta = $controlador->handle($request);
 
-foreach ($resposta->getHeaders() as $name => $value) {
+foreach ($resposta->getHeaders() as $name => $values) {
     foreach($values as $value){
         header(sprintf('%s: %s', $name, $value), false);
     }
