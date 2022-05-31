@@ -2,6 +2,7 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 use Nyholm\Psr7\Factory\Psr17Factory;
+use Psr\Container\ContainerInterface;
 use Alura\Cursos\Controller\ListarCursos;
 use Alura\Cursos\Controller\Persistencia;
 use Nyholm\Psr7Server\ServerRequestCreator;
@@ -43,8 +44,10 @@ $creator = new ServerRequestCreator(
 $request = $creator->fromGlobals();
 
 $classeControladora = $rotas[$caminho];
+/** @var ContainerInterface $container */
+$container = require __DIR__ . '/../config/dependencies.php';
 /** @var RequestHandlerInterface $controlador */
-$controlador = new $classeControladora();
+$controlador = $container->get($classeControladora);//pede uma instancia da classe controladora ao container
 $resposta = $controlador->handle($request);
 
 foreach ($resposta->getHeaders() as $name => $values) {
