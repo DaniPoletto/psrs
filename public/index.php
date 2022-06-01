@@ -17,20 +17,20 @@ if(!array_key_exists($caminho, $rotas)){
     exit();
 }
 
-// session_start();
-// $ehRotaDeLogin = stripos($caminho, 'login');
+session_start();
+$ehRotaDeLogin = stripos($caminho, 'login');
 
-// //está logado tentando acessar a página de login
-// if(isset($_SESSION['logado']) && $ehRotaDeLogin!==false){
-//     header("Location: /listar-cursos");
-//     exit();
-// }
+//está logado tentando acessar a página de login
+if(isset($_SESSION['logado']) && $ehRotaDeLogin!==false){
+    header("Location: /listar-cursos");
+    exit();
+}
 
-// //não está logado e tenta acessar uma página que não é de login
-// if(!isset($_SESSION['logado']) && $ehRotaDeLogin===false){
-//     header("Location: /login");
-//     exit();
-// }
+//não está logado e tenta acessar uma página que não é de login
+if(!isset($_SESSION['logado']) && $ehRotaDeLogin===false){
+    header("Location: /login");
+    exit();
+}
 
 $psr17Factory = new Psr17Factory();
 

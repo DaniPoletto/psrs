@@ -1,5 +1,4 @@
 <?php
-
 namespace Alura\Cursos\Controller;
 
 use Nyholm\Psr7\Response;
@@ -8,14 +7,14 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use Alura\Cursos\Helper\RenderizadorDeHtmlTrait;
 
-class FormularioInsercao implements RequestHandlerInterface
+class FormularioLogin implements RequestHandlerInterface 
 {
     use RenderizadorDeHtmlTrait;
     public function handle(ServerRequestInterface $request):ResponseInterface
     {
-        $html = $this->renderizaHtml('cursos/formulario.php',[
-            'titulo' => "Novo Curso"
+        $html = $this->renderizaHtml('login/formulario.php', [
+            'titulo' => 'Login'
         ]);
-        return new Response('200', [], $html);
+        return new Response(200, [], $html);
     }
 }
