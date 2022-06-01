@@ -1,12 +1,13 @@
 <?php
 
 namespace Alura\Cursos\Entity;
+// o \ no JsonSerializable indica q é uma classe com namespace global
 
 /**
  * @Entity
  * @Table(name="cursos")
  */
-class Curso
+class Curso implements \JsonSerializable
 {
     /**
      * @Id
@@ -37,5 +38,13 @@ class Curso
     public function setDescricao(string $descricao): void
     {
         $this->descricao = $descricao;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->id,
+            'descricao' => $this->descricao
+        ];
     }
 }

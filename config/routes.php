@@ -9,6 +9,7 @@ use Alura\Cursos\Controller\{
     FormularioLogin,
     RealizarLogin,
     Deslogar,
+    CursosEmJson,
 };
 
 return [
@@ -20,4 +21,5 @@ return [
     '/login' => FormularioLogin::class,
     '/realiza-login' => RealizarLogin::class,
     '/logout' => Deslogar::class,
+    '/buscarCursosEmJson' => CursosEmJson::class
 ];
