@@ -2,11 +2,17 @@
 
 Projeto Desenvolvido durante curso de MVC da Alura mostrando uso de MVC implementando PSRS.
 
+![Alt Text](https://github.com/DaniPoletto/psrs/blob/main/demo.gif)
+
+![Alt Text](https://github.com/DaniPoletto/psrs/blob/main/demo2.gif)
+
+### Projeto sem as PSRS
+
 [Projeto sem as PSRS](https://github.com/DaniPoletto/gerenciador-de-curso)
 
 ### Requisitos
 
-Instale o [composer](https://getcomposer.org/). 
+Instalação do [composer](https://getcomposer.org/). 
 
 ### Inicialização
 Na pasta do projeto, abra o terminal e digite o comando para instalar as dependências:
