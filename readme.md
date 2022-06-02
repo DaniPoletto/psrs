@@ -33,6 +33,7 @@ E acesse pelo link
 http://localhost:8080/listar-cursos
 ```
 
+### Erros
 Em caso de erro nas classes usando Doctrine
 ```
 vendor\bin\doctrine orm:generate-proxies
@@ -47,7 +48,7 @@ composer require symfony/cache
 composer require doctrine/annotations
 ```
 
-Pacotes utilizado:
+### Pacotes utilizado
 ```
 composer require psr/http-message
 ```
@@ -68,7 +69,7 @@ composer require psr/http-server-handler
 composer require php-di/php-di
 ```
 
-PSRS implementadas:
+### PSRS implementadas
 
 PSR-4 - Autoloading
 
